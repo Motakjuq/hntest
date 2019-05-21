@@ -4,12 +4,12 @@ import configurations from "./config";
 import dotenv from "dotenv";
 import cors from "cors";
 
+dotenv.config();
+
 class App {
   private app: express.Application;
 
   constructor() {
-    dotenv.config();
-
     configurations.forEach(conf => {
       conf.setup();
     });
@@ -24,7 +24,7 @@ class App {
     return this.app;
   }
 }
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 new App().getApp().listen(PORT, () => {
   console.log(`Running server on port ${PORT}`);

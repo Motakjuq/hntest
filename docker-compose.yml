@@ -8,27 +8,23 @@ services:
     build:
       context: .
       dockerfile: docker/backend/Dockerfile
-    environment:
-      - DB_HOST=mongo
-      - DB_NAME=test
-      - DB_USER=test
-      - DB_PASSWORD=test
+    env_file:
+      - .env.backend
     depends_on:
       - mongo
 
   crontab:
     image: hackernews-backend:latest
-    environment:
-      - DB_HOST=mongo
-      - DB_NAME=test
-      - DB_USER=test
-      - DB_PASSWORD=test
+    restart: on-failure
+    env_file:
+      - .env.backend
     command: schedule
     depends_on:
       - mongo
 
   frontend:
     image: hackernews-frontend:latest
+    restart: on-failure
     build:
       context: .
       dockerfile: docker/frontend/Dockerfile
@@ -39,6 +35,7 @@ services:
 
   mongo:
     image: mongo:4.0.9
+    restart: on-failure
     ports:
       - "27017:27017"
     environment:

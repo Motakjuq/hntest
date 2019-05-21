@@ -21,9 +21,7 @@ interface State {
 }
 
 export default class News extends React.Component<{}, State> {
-  private url = `${
-    process.env.REACT_APP_API_HOST ? process.env.REACT_APP_API_HOST : ""
-  }/stories/`;
+  private url = `${process.env.REACT_APP_API_HOST || ""}/stories/`;
 
   constructor(props: any) {
     super(props);
