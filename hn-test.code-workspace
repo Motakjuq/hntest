@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "backend",
+			"name": "Back"
+		},
+		{
+			"path": "frontend",
+			"name": "Front"
+		},
+		{
+			"path": ".",
+			"name": "Base"
+		}
+	],
+	"settings": {
+		"npm.packageManager": "yarn",
+		"[typescript]": {
+			"files.insertFinalNewline": true,
+			"editor.formatOnSave": true,
+			"editor.tabSize": 2
+		},
+		"[typescriptreact]": {
+			"files.insertFinalNewline": true,
+			"editor.formatOnSave": true,
+			"editor.tabSize": 2
+		},
+	}
+}

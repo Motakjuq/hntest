@@ -1,0 +1,36 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc-watch --onSuccess \"node ./dist/server.js\"",
+    "build": "tsc",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "sync": "node dist/tasks/sync.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/connect-mongo": "^0.0.41",
+    "@types/cors": "^2.8.5",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.16.1",
+    "@types/mongodb": "^3.1.27",
+    "@types/mongoose": "^5.5.1",
+    "@types/request": "^2.48.1",
+    "tsc-watch": "^2.2.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "connect-mongo": "^2.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "mongoose": "^5.5.9",
+    "request": "^2.88.0"
+  }
+}

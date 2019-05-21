@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+
+  backend:
+    image: hackernews-backend:latest
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    environment:
+      - DB_HOST=mongo
+      - DB_NAME=test
+      - DB_USER=test
+      - DB_PASSWORD=test
+    depends_on:
+      - mongo
+
+  crontab:
+    image: hackernews-backend:latest
+    environment:
+      - DB_HOST=mongo
+      - DB_NAME=test
+      - DB_USER=test
+      - DB_PASSWORD=test
+    command: schedule
+    depends_on:
+      - mongo
+
+  frontend:
+    image: hackernews-frontend:latest
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:4.0.9
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: test
+      MONGO_INITDB_DATABASE: test
+    volumes:
+      - mongo:/data/db
+
+volumes:
+  mongo:
