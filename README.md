@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Docker is required for build and run this project. Make sure that you have docker installed in your system.
+`Docker` and `Docker Compose` are required to build and run this project. Make sure that you have docker installed in your system.
 
 ## Create docker images
 
