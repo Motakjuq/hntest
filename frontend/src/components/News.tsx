@@ -10,7 +10,7 @@ interface Story {
   title: string;
   story_title: string;
   author: string;
-  created_at: Date;
+  created_at: string;
   created_at_i: number;
   story_url: string;
   url: string;
